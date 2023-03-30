@@ -1,24 +1,7 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
 import { useBlockProps } from '@wordpress/block-editor';
+import { TextControl } from '@wordpress/components';
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 import './editor.scss';
 
 /**
@@ -29,13 +12,19 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( props ) {
+	const { attributes, setAttributes } = props;
+	const { placement } = attributes;
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Ad Manager Block – hello from the editor!',
-				'ad-manager-block'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+			<TextControl
+				className="regular-text code"
+				label={ __( 'Google Ad Manager Placement ID', 'ad-manager-block' ) }
+				placeholder={ __( 'e.g. div-gpt-ad-1234567890-1', 'ad-manager-block' ) }
+				value={ placement }
+				onChange={ ( value ) => setAttributes( { placement: value.replace( /[^\da-z_-]+/g, '' ) } ) }
+			/>
+		</div>
 	);
 }

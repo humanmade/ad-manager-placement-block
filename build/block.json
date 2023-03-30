@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "humanmade/ad-manager-block",
+  "version": "0.1.0",
+  "title": "Ad Manager Placement",
+  "category": "widgets",
+  "icon": "google",
+  "description": "A simple Google Ad Manager placement block.",
+  "supports": {
+    "color": {
+      "background": true
+    },
+    "html": false,
+    "align": [
+      "left",
+      "right",
+      "center",
+      "wide",
+      "full"
+    ],
+    "alignWide": true,
+    "dimensions": {
+      "minHeight": true
+    },
+    "position": {
+      "sticky": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "customClassName": true
+  },
+  "textdomain": "ad-manager-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "placement": {
+      "type": "string",
+      "default": ""
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "dimensions": {
+          "minHeight": "90px"
+        }
+      }
+    }
+  }
+}

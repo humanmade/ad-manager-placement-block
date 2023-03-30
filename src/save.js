@@ -15,10 +15,9 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function save() {
+export default function save( props ) {
+	const { attributes } = props;
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Ad Manager Block – hello from the saved content!' }
-		</p>
+		<div { ...useBlockProps.save( { id: attributes.placement || '' } ) }></div>
 	);
 }

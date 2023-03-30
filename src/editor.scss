@@ -1,9 +1,32 @@
 /**
  * The following styles get applied inside the editor only.
- *
- * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-ad-manager-block {
-	border: 1px dotted #f00;
+.editor-styles-wrapper {
+
+	.wp-block-humanmade-ad-manager-block {
+		padding: 5px 20px;
+		background-color: var( --wp--preset--color--light-gray-25 );
+		color: var( --wp--preset--color--white );
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+
+		> div {
+			flex: 1 1 600px;
+		}
+	}
+
+	.wp-block-humanmade-ad-manager-block input[type="text"] {
+		width: 100%;
+		background-color: var( --wp--preset--color--white );
+		color: var( --wp--preset--color--black );
+		font-family: monospace;
+	}
+
+	.wp-block-humanmade-ad-manager-block input[type="text"]::placeholder {
+		color: inherit;
+	}
+
 }
